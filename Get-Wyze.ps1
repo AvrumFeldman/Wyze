@@ -1,4 +1,10 @@
 function Get-Wyze {
+    <#
+    .Description
+    Get-Wyze downloads videos from view.wyze.com and combine it with the audio using ffmpeg.
+    To get it to work you need to open developers tools before clicking on a video and copying the link to the getDASHManifest.mpd file and paste it into the URI parameter of the function.
+    You also need to make sure you have ffmpeg in the path environment variable.
+    #>
     param(
         [parameter(Mandatory)]
         [uri]$URI,
