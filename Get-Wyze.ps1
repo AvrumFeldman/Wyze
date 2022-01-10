@@ -61,4 +61,7 @@ function Get-Wyze {
     
     # Join audio and video
     & ffmpeg.exe -hide_banner -loglevel quiet -i "$($TempPath.FullName)\FullVideo.mp4" -i "$($TempPath.FullName)\FullAudio.mp4" -c:v copy -c:a aac "$OutputPath\$(get-date $data.mpd.availabilityStartTime -Format "MM_dd_yyyy_hh_mm_ss").mp4" | out-null
+
+    # Cleanup
+    Remove-Item -Path $temppath.fullname -Recurse
 }
